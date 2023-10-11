@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pv-access-pod-ubuntu
+spec:
+  containers:
+  - name: pv-access-container
+    image: ubuntu:latest  # You can use a basic image for simplicity
+    command: ["sleep", "3600"]  # Keep the Pod running
+    volumeMounts:
+    - name: pv-access-volume
+      mountPath: /pv-data  # Mount the PV to this directory
+  volumes:
+  - name: pv-access-volume
+    persistentVolumeClaim:
+      claimName: local-pvc # Replace with your PVC name

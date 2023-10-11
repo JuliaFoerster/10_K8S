@@ -1,0 +1,19 @@
+auth:
+  database: dev_db
+  username: dev_user
+  password: passworddev
+  rootPassword: rootpass
+image:
+  debug: true
+primary:
+  persistence:
+    existingClaim: mysql-pvc2
+  extraVolumeMounts:
+      - name: init
+        mountPath: /pv_data
+  extraVolumes:
+      - name: init
+        hostPath:
+          path: /Users/jfoerster008/bootcamp/k8s
+volumePermissions:
+  enabled: true
