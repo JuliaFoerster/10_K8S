@@ -5,7 +5,7 @@ First of all, you want to deploy the mysql database.
 Deploy Mysql database with 3 replicas and volumes for data persistence
 To simplify the process you can use Helm for that.
 
-<code>cd exercise_2</code>
+<code>cd exercise_2/3_bitnami_with_replia</code>
 
 ##### Create a Kubernetes cluster (Minikube)
 
