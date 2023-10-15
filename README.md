@@ -28,3 +28,13 @@ To simplify the process you can use Helm for that.
 <code>helm search repo bitnami/</code>
 
 <code>helm install mysql bitnami/mysql -f sql-replica.yaml</code>
+
+
+##### Check if pods run as expected: 
+##### Enter pod
+
+<code> kubectl exec -it pod/mysql-primary-0 -- /bin/bash </code>
+
+##### DB login 
+
+<code> mysql -u dev_user -p passworddev</code>
