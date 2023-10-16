@@ -1,6 +1,17 @@
 # K8S
 
 <details>
+<summary> EXERCISE 1: Create a Kubernetes cluster.
+</summary>
+  <br>
+  <code>brew install minikube</code> <br>
+  <code>minikube start --driver docker</code> <br>
+  <code>minikube status</code> 
+<br>
+
+</details>
+
+<details>
 <summary> EXERCISE 2: Deploy Mysql with 3 replicas.
 </summary>
   <br>
@@ -10,24 +21,18 @@
 ##### Execute deployment from directory exercise_2/3_bitnami_with_replia:
 <code> cd exercise_2/3_bitnami_with_replia</code>
 
-##### 1. Create a Kubernetes cluster (Minikube)
-
-<code>brew install minikube</code> <br>
-<code>minikube start --driver docker</code> <br>
-<code>minikube status</code> 
-
-##### 2. Use YAML files to create Volume and VolumeClaim
+##### 1. Use YAML files to create Volume and VolumeClaim
 
 <code>kubectl apply -f sql-replica-pv.yaml</code> <br>
 <code>kubectl apply -f sql-replica-pvc.yaml</code> <br>
 
-##### 3. Use Helm Charts to create 3 SQL Instances using peristant volumes
+##### 2. Use Helm Charts to create 3 SQL Instances using peristant volumes
 
 <code>helm repo add bitnami https://charts.bitnami.com/bitnami</code> <br>
 <code>helm search repo bitnami/</code> <br>
 <code>helm install mysql bitnami/mysql -f sql-replica.yaml</code> <br>
 
-##### 4. Check if pods run as expected: 
+##### 3. Check if pods run as expected: 
 ##### Enter pod
 <code> kubectl exec -it pod/mysql-primary-0 -- /bin/bash </code>
 
