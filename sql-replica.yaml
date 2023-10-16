@@ -1,0 +1,37 @@
+architecture: replication
+auth:
+  database: my-app-db
+  username: my-user
+  password: my-pass
+  rootPassword: secret-root-pass
+image:
+  debug: true
+primary:
+  persistence:
+    existingClaim: mysql-pvc2
+  extraVolumeMounts:
+      - name: init
+        mountPath: /pv_data
+  extraVolumes:
+      - name: init
+        hostPath:
+          path: /Users/jfoerster008/bootcamp/k8s
+volumePermissions:
+  enabled: true
+secondary:
+  replicaCount: 2
+
+# WORKS too - without creating pv and pvc:
+# architecture: replication
+# auth:
+#   rootPassword: secret-root-pass
+#   database: my-app-db
+#   username: my-user
+#   password: my-pass
+
+# secondary:
+#   # 1 primary and 2 secondary replicas
+#   replicaCount: 2
+#   persistence:
+#     storageClass: standard
+
