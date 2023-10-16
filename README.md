@@ -74,7 +74,7 @@ DOCKER_USER=your docker username
 DOCKER_EMAIL=your dockerhub email
 DOCKER_PASSWORD= dockerhub pwd
 
-kubectl create secret docker-registry my-registry-key \
+kubectl create secret docker-registry my-registry-key1 \
 --docker-server=<DOCKER_REGISTRY_SERVER>
 --docker-username=<DOCKERHUB_USERNAME> \
 --docker-password=<DOCKERHUB_PASSWORD> \
