@@ -57,8 +57,8 @@ With docker-compose, you were setting env_vars on server. In K8s there are own c
 
 Rename generated jar file to: java-mysql-project-1.0-SNAPSHOT.jar <br>
 
-- Create a docker image using existing Dockerfile: 
-<code>docker build -t java_app .</code><br>
+- Create and tag a docker image using existing Dockerfile:
+<code>docker build -t <DOCKERHUB_USERNAME>/java_app:1.0 .</code><br>
 - Check if the image got build:
 <code>docker images</code><br>
 - Login to Docker Hub:
