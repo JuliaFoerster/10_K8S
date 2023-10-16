@@ -59,10 +59,12 @@ Rename generated jar file to: java-mysql-project-1.0-SNAPSHOT.jar <br>
 
 - Create a docker image using existing Dockerfile: 
 <code>docker build -t java_app .</code><br>
+- Check if the image got build:
+<code>docker images</code><br>
 - Login to Docker Hub:
 <code>docker login</code><br>
 - Push Image into your Dockerhub Repository:
-<code>docker push <DOCKERHUB_USERNAME>/java-mysql-app:1.0</code><br>
+<code>docker push <DOCKERHUB_USERNAME>/java-app:1.0</code><br>
 
 ##### 1. Create Key (login to Registry and create Secret in K8S)
 
