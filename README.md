@@ -104,27 +104,31 @@ kubectl create secret docker-registry my-registry-key1 \
   We want users to access the application using the IP address and instead use a domain name -> Install Ingress controller in 
   the cluster and configure ingress access for your application.
   
-  ###### 1. Create Controller 
+  ###### Create Controller 
   <code>minikube addons enable ingress </code><br>
-  ###### 2. Write Routing Rule and apply it to cluster
+
+</details>
+
+<details>
+<summary> EXERCISE 6: Create Ingress rule.
+</summary>
+  <br>
+
+  ###### 1. Write Routing Rule and apply it to cluster
   <code>kubectl apply -f kubectl apply -f java-app-ingress.yaml</code><br>
-  ###### 3. Starting tunnel for service java-app-ingress.
+  ###### 2. Starting tunnel for service java-app-ingress.
   <code>sudo minikube tunnel</code><br>
 
-  ###### 4. Ensure your /etc/hosts file contains the correct entry:
+  ###### 3. Ensure your /etc/hosts file contains the correct entry:
   map "my-app.com" to "127.0.0.1." <br>
 
-  ###### 5. Check if App availabe via Browser:
+  ###### 4. Check if App availabe via Browser:
   1) etc/hosts file will redirect requests from http://my-app.com/ to 127.0.0.1<br>
   2) minikube tunnel redirects request from 127.0.0.1 to services.<br>
        E.g.<br>
          - phpmyadmin service available on http://my-app.com:8081/<br>
          - http://my-app.com/ will show team member roles (a picture)<br>
          - http://my-app.com/get-data shows list of existing team members<br>
-     
-      
-     
-<br>
 
 </details>
 
