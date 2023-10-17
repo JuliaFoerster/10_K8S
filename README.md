@@ -132,3 +132,22 @@ kubectl create secret docker-registry my-registry-key1 \
 
 </details>
 
+
+<details>
+<summary> EXERCISE 7: Port-forward for phpmyadmin
+</summary>
+  <br>
+
+phpMyAdmin Security Concerns: phpMyAdmin is a tool for managing MySQL databases, and it can potentially have security implications if it's exposed to the public internet. By default, it might have vulnerabilities or could be a target for attacks. So, to mitigate these concerns, you choose not to expose it to the public.<br>
+
+Port Forwarding: Instead of exposing phpMyAdmin directly via my-app.com/8081, you configure port forwarding. Port forwarding allows you to access a specific service running inside your Kubernetes cluster from your local machine (localhost) without exposing it to the public internet. This means that phpMyAdmin remains hidden within your cluster, and you can access it securely when needed.<br>
+
+The kubectl port-forward command is used to create a network tunnel between your local machine and a service running inside a Kubernetes cluster: <br>
+
+<code> kubectl port-forward svc/phpmyadmin-service 8081:8081</code><br>
+
+Now phpmyadmin is not available on my-app.com/8081 anymore but on localhost/8081
+
+
+</details>
+
