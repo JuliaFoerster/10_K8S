@@ -94,20 +94,29 @@ kubectl create secret docker-registry my-registry-key1 \
   
   ###### 1. Create deployment yaml file for phpmyadmin instance and deploy:
   <code>kubectl apply -f phpadminyaml.yaml</code><br>
+</details>
 
+<details>
+<summary> EXERCISE 5: Deploy ingress controller
+</summary>
+  <br>
+  
   We want users to access the application using the IP address and instead use a domain name -> Install Ingress controller in 
   the cluster and configure ingress access for your application.
   
   ###### 1. Create Controller 
   <code>minikube addons enable ingress </code><br>
-  ###### 2. Write Routing Rule 
+  ###### 2. Write Routing Rule and apply it to cluster
   <code>kubectl apply -f kubectl apply -f java-app-ingress.yaml</code><br>
   ###### 3. Starting tunnel for service java-app-ingress.
-  <code>minikube tunnel</code><br>
+  <code>sudo minikube tunnel</code><br>
 
-  ###### 4. App availabe via
-  1) java service on Browser: 127.0.0.1/8081
-  2) ....
+  ###### 4. Ensure your /etc/hosts file contains the correct entry:
+  map "my-app.com" to "127.0.0.1." <br>
+
+  ###### 5. Check if App availabe via Browser:
+  1) phpmyadmin service:[ http://localhost:8081](http://my-app.com:8081/)
+  2) http://my-app.com/
 <br>
 
 </details>
