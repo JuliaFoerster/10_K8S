@@ -44,5 +44,7 @@ spec:
     app: phpmyadmin
   ports:
     - protocol: TCP
-      port: 8081
-      targetPort: 80
+      port: 8081    # The external port you want to use
+      targetPort: 80  # The container port (phpMyAdmin's default port)
+      nodePort: 30000
+  type: LoadBalancer # will be open to public like this
