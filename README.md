@@ -115,8 +115,15 @@ kubectl create secret docker-registry my-registry-key1 \
   map "my-app.com" to "127.0.0.1." <br>
 
   ###### 5. Check if App availabe via Browser:
-  1) phpmyadmin service:[ http://localhost:8081](http://my-app.com:8081/)
-  2) http://my-app.com/
+  1) etc/hosts file will redirect requests from http://my-app.com/ to 127.0.0.1
+  2) minikube tunnel redirects request from 127.0.0.1 to services.
+       E.g.
+         - phpmyadmin service available on http://my-app.com:8081/
+         - http://my-app.com/ will show team member roles?!
+         - http://my-app.com/8080 cant be reached :( 
+     
+      
+     
 <br>
 
 </details>
