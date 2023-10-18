@@ -117,6 +117,12 @@ kubectl create secret docker-registry my-registry-key1 \
 
   ###### 1. Write Routing Rule and apply it to cluster
   <code>kubectl apply -f kubectl apply -f java-app-ingress.yaml</code><br>
+  This will throw an error: <br>
+  rror from server (InternalError): error when creating "java-app-ingress.yaml": Internal error occurred: failed calling webhook "validate.nginx.ingress.kubernetes.io": failed to call webhook: Post "https://ingress-nginx-controller-admission.ingress-nginx.svc:443/networking/v1/ingresses?timeout=10s": dial tcp 10.111.212.254:443: connect: connection refused <br>
+  As described here: https://medium.com/ci-cd-devops/internal-error-occurred-failed-calling-webhook-validate-nginx-ingress-kubernetes-io-b5008e628e03 
+  you can solve this error with: <br>
+  <code>kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission</code><br>
+  
   ###### 2. Starting tunnel for service java-app-ingress.
   <code>sudo minikube tunnel</code><br>
 
