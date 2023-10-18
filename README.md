@@ -37,7 +37,8 @@
 <code> kubectl exec -it pod/mysql-primary-0 -- /bin/bash </code>
 
 ##### DB login 
-<code> mysql -u dev_user -p passworddev</code>
+<code> mysql -u <MYSQL_USERNAME> -p <MYSQL_PASSWORD</code> <br>
+-> <code> mysql -u dev_user -p passworddev</code><br>
 </details>
 
 
@@ -93,7 +94,7 @@ kubectl create secret docker-registry my-registry-key1 \
   <br>
   
   ###### 1. Create deployment yaml file for phpmyadmin instance and deploy:
-  <code>kubectl apply -f phpadminyaml.yaml</code><br>
+  <code>kubectl apply -f phpmyadmin.yaml</code><br>
 </details>
 
 <details>
