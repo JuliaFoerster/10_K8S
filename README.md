@@ -126,7 +126,9 @@ kubectl create secret docker-registry my-registry-key1 \
    <br>
   <code>kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission</code><br>
   
-  ###### 2. Starting tunnel for service java-app-ingress.
+  ###### 2. Starting minikube tunnel
+  Everything coming from localhost 127.0.0.1  will be redirected to minikube ip
+  
   <code>sudo minikube tunnel</code><br>
 
   ###### 3. Ensure your /etc/hosts file contains the correct entry:
@@ -134,7 +136,7 @@ kubectl create secret docker-registry my-registry-key1 \
 
   ###### 4. Check if App availabe via Browser:
   1) etc/hosts file will redirect requests from http://my-app.com/ to 127.0.0.1<br>
-  2) minikube tunnel redirects request from 127.0.0.1 to services.<br>
+  2) minikube tunnel redirects request from 127.0.0.1 to minikube (services).<br>
        E.g.<br>
          - phpmyadmin service available on http://my-app.com:8081/<br>
          - http://my-app.com/ will show team member roles (a picture)<br>
@@ -148,6 +150,8 @@ kubectl create secret docker-registry my-registry-key1 \
 </summary>
   <br>
 
+This exercise does not make much sense in our scenario because our app is running on minikube/localhost (see exercise 6).
+
 phpMyAdmin Security Concerns: phpMyAdmin is a tool for managing MySQL databases, and it can potentially have security implications if it's exposed to the public internet. By default, it might have vulnerabilities or could be a target for attacks. So, to mitigate these concerns, you choose not to expose it to the public.<br>
 
 Port Forwarding: Instead of exposing phpMyAdmin directly via my-app.com/8081, you configure port forwarding. Port forwarding allows you to access a specific service running inside your Kubernetes cluster from your local machine (localhost) without exposing it to the public internet. This means that phpMyAdmin remains hidden within your cluster, and you can access it securely when needed.<br>
@@ -156,7 +160,7 @@ The kubectl port-forward command is used to create a network tunnel between your
 
 <code> kubectl port-forward svc/phpmyadmin-service 8081:8081</code><br>
 
-Now phpmyadmin is not available on my-app.com/8081 anymore but on localhost/8081
+Now phpmyadmin is not available on my-app.com/8081 anymore but on localhost/8081 (which is the same for us, as mentioned at the beginning of this exercise).
 
 
 </details>
