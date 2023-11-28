@@ -162,6 +162,10 @@ The kubectl port-forward command is used to create a network tunnel between your
 
 Now phpmyadmin is not available on my-app.com/8081 anymore but on localhost/8081 (which is the same for us, as mentioned at the beginning of this exercise).
 
-
 </details>
 
+
+<details>
+<summary> EXERCISE 8: ToDo Create Helm Chart for Java App
+</summary>
+</details>
