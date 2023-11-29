@@ -1,5 +1,7 @@
 # K8S
 
+Useful command: <code> watch kubectl get pods,services,deployments --all-namespaces -o wide</code>
+
 <details>
 <summary> EXERCISE 1: Create a Kubernetes cluster.
 </summary>
